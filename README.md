@@ -2,7 +2,7 @@
 ## spring-2022-work
 
 
-### Last Name: Christopeher
+### Last Name: Christopher
 ### First Name: Pawlus
 ### GitHub Username: ChrisPJava
 
