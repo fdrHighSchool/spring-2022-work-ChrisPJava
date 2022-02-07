@@ -1,19 +1,21 @@
+import java.util.*;
+
 public class FRQ2021 {
   public static void main(String[] args) {
     int arr[][] = {{0, 1, 1},
-                   {0, 3, 2},
+                   {1, 3, 2},
                    {1, 1, 2},
                    {4, 0, 6}};
 
     // Part A of FRQ
     System.out.println(isNonZeroRow(arr, 0));
-    System.out.println(isNonZeroRow(arr, 1));
+    System.out.println(isNonZeroRow(arr, 4));
 
     // Part B of FRQ
+    System.out.println(Arrays.deepToString(resize(arr)));
 
-    // Tests of the helper method
+    // Test of the helper method
     System.out.println(numNonZeroRows(arr));
-
   } // end main method
 
   public static int numNonZeroRows(int[][] array2D) {
@@ -34,6 +36,13 @@ public class FRQ2021 {
 
     return count;
   } // end numNonZeroRows method
+
+  public static int[][] resize(int[][] array2D) {
+    int rows = 0;
+    int[][] newArr = new int[numNonZeroRows(array2D)][array2D[0].length];
+
+    return newArr;
+  }
 
   public static boolean isNonZeroRow(int[][] array2D, int r) {
     int l = 0;
