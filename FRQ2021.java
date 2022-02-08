@@ -16,7 +16,7 @@ public class FRQ2021 {
     // Part B of FRQ
     System.out.println(Arrays.deepToString(resize(arr)));
 
-    // Test of the helper method
+    // Helper method test
     System.out.println(numNonZeroRows(arr));
   } // end main method
 
