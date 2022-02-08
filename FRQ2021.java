@@ -2,14 +2,16 @@ import java.util.*;
 
 public class FRQ2021 {
   public static void main(String[] args) {
-    int arr[][] = {{0, 1, 1},
+    int arr[][] = {
+                   {2, 1, 0},
                    {1, 3, 2},
-                   {1, 1, 2},
-                   {4, 0, 6}};
+                   {0, 0, 0},
+                   {4, 5, 6}
+                  };
 
     // Part A of FRQ
     System.out.println(isNonZeroRow(arr, 0));
-    System.out.println(isNonZeroRow(arr, 4));
+    System.out.println(isNonZeroRow(arr, 3));
 
     // Part B of FRQ
     System.out.println(Arrays.deepToString(resize(arr)));
@@ -38,11 +40,18 @@ public class FRQ2021 {
   } // end numNonZeroRows method
 
   public static int[][] resize(int[][] array2D) {
-    int rows = 0;
     int[][] newArr = new int[numNonZeroRows(array2D)][array2D[0].length];
+    int rows = 0;
+
+    for(int i = 0; i < array2D.length; i++) {
+      if((isNonZeroRow(array2D, i))) {
+        newArr[rows] = array2D[i];
+        rows++;
+      }
+    }
 
     return newArr;
-  }
+  } // end resize method
 
   public static boolean isNonZeroRow(int[][] array2D, int r) {
     int l = 0;
