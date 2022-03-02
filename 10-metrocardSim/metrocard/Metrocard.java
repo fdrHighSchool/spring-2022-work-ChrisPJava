@@ -1,48 +1,37 @@
-public class MetrocardSwipe {
-    public static void main(String[] args) {
-        /*
-            Simulation goes as follows: Swipe at 7:00 AM, 3:00 PM, and 9:00 PM.
-            One object is used, one Metrocard card, for the whole Simulation.
-            The card will go through all 3 swipes and one that with 0 swipes.
-            A card will carry the time of the swipe and how many swipes are left.
-            This is a simulation of a person's metrocard.
-        */
+public class Metrocard {
+    // Instance variables; Time of swipe, Is the swipe/card valid.
+    private int time; // XX:XX
+    private boolean valid; // TRUE:FALSE
+    private int swipes; // 3-0
 
-        // SIMULATION OF ONE DAY
-        int swipes = 3;
+    // Constructor
+    public Metrocard(int t, int s) {
+        this.swipes = s;
+        this.time = t;
+        this.valid = validCard();
+    }// end Constructor method
 
-        // Instance Metrocard class
-        Metrocard card = new Metrocard(700, swipes); // Swipe at 7:00 AM
-        swipes--;
+    public boolean getValidCard() {
+        return this.valid;
+    }// end getValidCard method
 
-        card.swipe();
-        System.out.println("Is your card valid: "+ card.validCard());
-        System.out.println(card.getValidCard());
-        System.out.println(card.getSwipes());
+    public int getSwipes() {
+        return this.swipes;
+    }// end getSwipes method
 
+    public boolean validCard() {
+        if((this.time < 2031 && this.time > 529) && swipes > 0) {
+            return true;
+        }
+        return false;
+    }// end validCard method
 
-        card = new Metrocard(1500, swipes); // Swipe at 3:00 PM
-        swipes--;
-
-        card.swipe();
-        System.out.println("Is your card valid: "+ card.validCard());
-        System.out.println(card.getValidCard());
-        System.out.println(card.getSwipes());
-
-        card = new Metrocard(2000, swipes); // Swipe at 8:00 PM
-        swipes--;
-
-        card.swipe();
-        System.out.println("Is your card valid: "+ card.validCard());
-        System.out.println(card.getValidCard());
-        System.out.println(card.getSwipes());
-
-        card = new Metrocard(2105, swipes); // Swipe at 9:05 PM
-        swipes--;
-
-        card.swipe();
-        System.out.println("Is your card valid: "+ card.validCard());
-        System.out.println(card.getValidCard());
-        System.out.println(card.getSwipes());
-    } // end main method
-} // end class
+    public void swipe() {
+        if(this.valid) {
+            System.out.println("Pass through, swipes left: "+ this.swipes);
+        }
+        else {
+            System.out.println("Swipes left: "+ this.swipes +". Time is "+ this.time);
+        }
+    } // end Swipe method
+} // end class swipes
